@@ -1,15 +1,19 @@
-from pydantic import BaseModel
+from typing import Annotated, Optional
+from pydantic import BaseModel, BeforeValidator, Field
 
-class GamedataRequest(BaseModel):
-    criancaUUID: str
-    especialistaId: str
-    jogoId: int
-    numeroFase: int
-    dificuldadeFase: int
-    numeroAcertos: int
-    numeroErros: int
-    tempoSessao: int
-    tempoSessaoF: float
-    habilidadeTrabalhada: str
-    plataforma: str
-    condicoesAdequadas: str
+PyObjectId = Annotated[str, BeforeValidator(str)]
+
+class GamedataModel(BaseModel):
+    id: Optional[PyObjectId] = Field(alias="_id", default=None)
+    criancaUUID: str =  Field(...)
+    especialistaId: str =  Field(...)
+    jogoId: int =  Field(...)
+    numeroFase: int =  Field(...)
+    dificuldadeFase: int =  Field(...)
+    numeroAcertos: int =  Field(...)
+    numeroErros: int =  Field(...)
+    tempoSessao: int =  Field(...)
+    tempoSessaoF: float =  Field(...)
+    habilidadeTrabalhada: str =  Field(...)
+    plataforma: str =  Field(...)
+    condicoesAdequadas: str =  Field(...)
