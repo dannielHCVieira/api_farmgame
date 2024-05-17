@@ -17,3 +17,15 @@ class GamedataModel(BaseModel):
     habilidadeTrabalhada: str =  Field(...)
     plataforma: str =  Field(...)
     condicoesAdequadas: str =  Field(...)
+
+class PlayerdataModel(BaseModel):
+    id: Optional[PyObjectId] = Field(alias="_id", default=None)
+    nomeCrianca: str =  Field(...)
+    nomeResponsavel1: str =  Field(...)
+    nomeResponsavel2: str =  Field(...)
+    especialistaId: str =  Field(...)
+    terapeutaId: str =  Field(...)
+    escolaridade: str =  Field(...)
+    idade: int =  Field(...)
+    cidade: str =  Field(...)
+    nivelEstudos: int =  Field(...)

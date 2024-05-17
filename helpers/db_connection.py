@@ -8,3 +8,4 @@ db = client.unity_farmgame
 
 config_c = db.get_collection("config")
 gamedata_c = db.get_collection("game_data")
+playerdata_c = db.get_collection("player_data")
