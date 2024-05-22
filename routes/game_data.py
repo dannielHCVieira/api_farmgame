@@ -27,3 +27,18 @@ async def log_data(
         response = {"error": str(e)}
 
     return response
+
+@router.get("/get/{id}",
+            response_model=GamedataModel,
+            response_model_by_alias=False)
+async def get_data(
+    id: str
+):
+    response: GamedataModel = None
+
+    try:
+        response = await gamedata_c.find_one({"criancaUUID": id})
+    except Exception as e:
+        response = {"error": str(e)}
+
+    return response.model_dump(by_alias=True, exclude=["id"])
